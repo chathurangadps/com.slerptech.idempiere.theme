@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk>
+<div style="background-color: #FFFFFF; margin: 5px; padding: 8px 12px; border: 1px solid #D9E1E8; border-radius: 6px;">
+  <hbox align="center">
+    <a href="https://www.slerptech.com" target="_blank"><image src="~./theme/slerptech/images/login-logo.png" style="max-width: 320px; height: auto;"/></a>
+  </hbox>
+</div>
+<div style="height: 60px"><space/></div>
+</zk>

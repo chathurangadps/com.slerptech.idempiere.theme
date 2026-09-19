@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<artifacts size='2'>
+  <artifact classifier='osgi.bundle' id='com.slerptech.idempiere.theme' version='13.0.0.202609191928'>
+    <properties size='9'>
+      <property name='artifact.size' value='567568'/>
+      <property name='download.size' value='567568'/>
+      <property name='download.checksum.sha-512' value='9a7e55f2068076eebed508697a866e00907214a87c32717a06805e69bd13795fb27392663e3bfc0edb82f39c66f152605f34e8ae5ba06b57d1edfc3ff87c5be0'/>
+      <property name='download.checksum.sha-1' value='4de722520df860cef3318b6dcad2ec7d7279b68e'/>
+      <property name='download.checksum.sha-256' value='1da7bc8ecd6297ec386f9b9fc8c606fb467945b2204c2254a004ba7ea3a64355'/>
+      <property name='maven-groupId' value='org.idempiere'/>
+      <property name='maven-artifactId' value='com.slerptech.idempiere.theme'/>
+      <property name='maven-version' value='13.0.0-SNAPSHOT'/>
+      <property name='maven-type' value='eclipse-plugin'/>
+    </properties>
+  </artifact>
+  <artifact classifier='osgi.bundle' id='com.slerptech.idempiere.theme.source' version='13.0.0.202609191928'>
+    <properties size='10'>
+      <property name='artifact.size' value='565293'/>
+      <property name='download.size' value='565293'/>
+      <property name='download.checksum.sha-512' value='1de7bc367e510c88a5afc67d1c4aaffa04829251da378d343e1d495ac298b94b64ee0431776eb5c1267ce54bdecd64240c3285b988911616224df467c9788410'/>
+      <property name='download.checksum.sha-1' value='69d8f3e8ddd3fbf627be8ec682a82e11c979a0f1'/>
+      <property name='download.checksum.sha-256' value='452cdcc96a804ab33cb3984657fac4961f2704f565f390617fa77e5b57e6f65a'/>
+      <property name='maven-groupId' value='org.idempiere'/>
+      <property name='maven-artifactId' value='com.slerptech.idempiere.theme'/>
+      <property name='maven-version' value='13.0.0-SNAPSHOT'/>
+      <property name='maven-classifier' value='sources'/>
+      <property name='maven-type' value='java-source'/>
+    </properties>
+  </artifact>
+</artifacts>

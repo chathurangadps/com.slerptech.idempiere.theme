@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SLERPTECH iDempiere Theme
+Bundle-SymbolicName: com.slerptech.idempiere.theme
+Bundle-Version: 13.0.0.202609191928
+Eclipse-BundleShape: dir
+Bundle-Vendor: SLERPTECH (PVT) LTD
+Fragment-Host: org.adempiere.ui.zk;bundle-version="13.0.0"
+Automatic-Module-Name: com.slerptech.idempiere.theme
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+

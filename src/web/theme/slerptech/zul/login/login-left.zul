@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SLERPTECH split-screen login brand panel.
+
+Upstream reference: org.idempiere.zk.iceblue_c.theme (release-13 checkout,
+this workspace) src/web/theme/iceblue_c/zul/login/login-left.zul, which
+originally rendered <vendorLogo/><loginInfo/><versionInfo/><loginLinks/>
+via macro includes into the WLogin.java west borderlayout region.
+
+Reason for override: task 009 (split-screen login redesign) requires a
+left brand marketing panel (logo, heading, feature list, decorative
+shapes, footer) that has no equivalent in core Java rendering; the
+west region is the only extension point WLogin.java exposes for this
+kind of content, and it already auto-shows/hides based on whether this
+file renders anything (see WLogin.java doCreatePart: west.setVisible(false)
+only when west.getFirstChild().getFirstChild() == null).
+
+Risk classification: LOW. This file lives entirely inside
+com.slerptech.idempiere.theme (our own OSGi theme fragment), not
+org.adempiere.ui.zk. No core file is modified. Content is static markup
+only (no zscript logic beyond plain text), so there is no functional/
+authentication behavior to regress.
+-->
+<zk>
+<div sclass="login-brand-panel">
+	<div sclass="login-brand-shape login-brand-shape-1"/>
+	<div sclass="login-brand-shape login-brand-shape-2"/>
+	<div sclass="login-brand-content">
+		<div sclass="login-brand-logo-chip">
+			<image src="~./theme/slerptech/images/login-logo.png"/>
+		</div>
+<html>
+<![CDATA[
+<h1 class="login-brand-heading">Enterprise ERP Platform</h1>
+<p class="login-brand-subtext">A modern platform for managing finance, sales, purchasing, inventory, operations, and business processes in one place.</p>
+<ul class="login-brand-features">
+	<li><span class="login-brand-check">&#10003;</span> Financial Management</li>
+	<li><span class="login-brand-check">&#10003;</span> Sales &amp; Distribution</li>
+	<li><span class="login-brand-check">&#10003;</span> Purchasing</li>
+	<li><span class="login-brand-check">&#10003;</span> Inventory Management</li>
+	<li><span class="login-brand-check">&#10003;</span> Business Process Automation</li>
+	<li><span class="login-brand-check">&#10003;</span> Secure Role-Based Access</li>
+</ul>
+]]>
+</html>
+	</div>
+	<div sclass="login-brand-footer">&#169; 2026 SLERPTECH (PVT) LTD &#8226; Version 13.0</div>
+</div>
+</zk>
+

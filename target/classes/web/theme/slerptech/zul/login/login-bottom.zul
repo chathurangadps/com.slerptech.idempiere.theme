@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk>
+<zscript>
+	import org.compiere.Adempiere;
+	var mainVersion = Adempiere.getVersion();
+	var isVersionShown = Adempiere.isVersionShown();
+</zscript>
+<div sclass="login-tech-footer" if="${isVersionShown == true}">
+	<label value="SLERPTECH iDempiere &#8226; ${mainVersion}"/>
+</div>
+</zk>
+
