@@ -57,14 +57,17 @@
 
 .desktop-home-tabpanel .z-panel-head {
   background-color: #FFFFFF;
+  --zk-container-header-color: #15304A;
+  --zk-gadget-panel-icon-color: #15304A;
+  --zk-gadget-panel-icon-hover-color: #0A1B3B;
 }
 
-.link {
+.desktop-header .link {
   cursor: pointer;
   color: #FFFFFF !important;
 }
 
-.link.z-toolbarbutton:hover span {
+.desktop-header .link.z-toolbarbutton:hover span {
   color: #F2643C !important;
 }
 
@@ -72,4 +75,23 @@
 .z-window-header {
   background-color: #0A1B3B;
   color: #FFFFFF;
+}
+
+.z-panel-head {
+  --zk-container-header-color: #FFFFFF;
+  --zk-gadget-panel-icon-color: #FFFFFF;
+  --zk-gadget-panel-icon-hover-color: #FFFFFF;
+}
+
+<%-- Set the caption foreground itself; deployed ZK skins may give it a
+     color instead of inheriting the panel header's foreground. --%>
+.z-panel-head > .z-panel-header,
+.z-panel-head > .z-panel-header > .z-caption,
+.z-panel-head > .z-panel-header > .z-caption > .z-caption-content,
+.z-panel-head > .z-panel-header > .z-caption > .z-caption-content > .z-caption-label {
+  color: var(--zk-container-header-color);
+}
+
+.z-panel-head .dashboard-content-help-icon {
+  color: var(--zk-container-header-color);
 }

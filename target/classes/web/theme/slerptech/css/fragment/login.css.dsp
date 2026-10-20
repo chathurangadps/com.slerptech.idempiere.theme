@@ -9,39 +9,47 @@
   background: transparent;
 }
 
-<%-- Fix for clipped action area: the borderlayout's <center autoscroll>
-     wraps a vlayout (id=loginCenterLayout, vflex=1, pack=center) that
-     centers the LoginWindow vertically. Once the card grew taller than
-     the viewport (bigger logo/title/fields), the vlayout's own
-     flex-box sizing clipped the centered child's overflow (its own box
-     does not overflow even though the centered child visually does),
-     so the outer autoscroll never triggered. Forcing these two
-     confirmed, theme-controlled ids (set in login.zul) to auto height /
-     visible overflow lets the whole card -- including the action
-     area/footer -- render fully, scrolling via the outer <center> if it
-     is ever taller than the viewport. --%>
-#loginCenterLayout, #loginWindow {
-  height: auto !important;
-  max-height: none !important;
-  overflow: visible !important;
+<%-- Center login card vertically and horizontally within the center region.
+     The borderlayout's <center> contains the LoginWindow and the .login-box.
+     Using flexbox on .login-box > .z-window-content along with margin: auto
+     on the form and card elements ensures the card is perfectly centered
+     both vertically and horizontally in the available space, while preserving
+     natural scrolling without clipping if the viewport height is reduced. --%>
+.login-window .z-center-body {
+  display: flex !important;
+  flex-direction: column !important;
 }
 
-<%-- Force true horizontal centering of the card within the right panel.
-     ZK's vlayout align="center" did not reliably center the LoginWindow
-     child in practice (it rendered flush toward the left edge of the
-     center region instead) -- override explicitly via flex on the
-     confirmed #loginCenterLayout id and a matching auto margin on
-     #loginWindow itself as a second, independent centering mechanism. --%>
-#loginCenterLayout {
+.login-window .login-box {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  background: transparent !important;
+}
+
+.login-window .login-box > .z-window-content {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  min-height: 100% !important;
+  box-sizing: border-box !important;
+  padding: 24px 0 !important;
+}
+
+.login-window .login-box form {
+  margin: auto !important;
+}
+
+#loginCenterLayout, .login-center-layout,
+#loginWindow, .login-window-root {
+  height: 100% !important;
+  width: 100% !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
   justify-content: center !important;
-  width: 100% !important;
-}
-
-#loginWindow {
-  margin: 0 auto !important;
+  overflow: visible !important;
 }
 
 .login-window .z-center {
@@ -53,6 +61,13 @@
      page's own borderlayout sclass (.login-window), not global. --%>
 .login-window .z-west, .login-window .z-center {
   border: none !important;
+}
+
+.login-window .z-west-splitter,
+.login-window .z-east-splitter {
+  display: none !important;
+  width: 0 !important;
+  pointer-events: none !important;
 }
 
 <%-- ============================================================
@@ -179,9 +194,14 @@
 
 .login-brand-footer {
   position: relative;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.75);
   font-size: 12px;
   margin-top: 32px;
+}
+
+.login-brand-footer,
+.login-brand-footer * {
+  color: rgba(255, 255, 255, 0.75) !important;
 }
 
 @media screen and (max-width: 899px) {
@@ -363,11 +383,11 @@
 
 .login-field input:not([type="checkbox"]) {
   width: 100%;
-  height: 30px;
+  height: 40px;
   border-radius: 6px !important;
-  border: 1px solid #E5E7EB !important;
+  border: 1px solid #CBD5E1 !important;
   padding: 0 8px !important;
-  font-size: 13px;
+  font-size: 14px;
   box-sizing: border-box;
 }
 
@@ -377,63 +397,91 @@
   outline: none;
 }
 
-<%-- Login combobox control and popup styling. --%>
-.login-box .z-combobox {
+<%-- Login composite controls share one border and a full-height trigger. --%>
+.login-box .z-combobox,
+.login-box .z-datebox {
   width: 100%;
-  height: 30px;
-  border: 1px solid #E5E7EB;
+  height: 40px;
+  border: 1px solid #CBD5E1;
   border-radius: 6px;
   background-color: #FFFFFF;
   box-sizing: border-box;
   overflow: visible;
 }
 
-.login-box .z-combobox-input {
+.login-box .z-datebox {
+  display: inline-flex;
+  align-items: center;
+}
+
+.login-box .z-combobox-input,
+.login-box .login-field .z-datebox-input {
   width: 100% !important;
   border: none !important;
   background: transparent !important;
-  height: 28px !important;
+  height: 38px !important;
   padding: 0 36px 0 8px !important;
   border-radius: 6px !important;
-  font-size: 13px !important;
-  line-height: 28px !important;
+  font-size: 14px !important;
+  line-height: 38px !important;
   box-sizing: border-box;
 }
 
-.login-box .z-combobox-button {
+.login-box .login-field .z-datebox-input {
+  flex: 1;
+  min-width: 0;
+  width: calc(100% - 40px) !important;
+  padding-right: 8px !important;
+}
+
+.login-box .z-combobox-button,
+.login-box .z-datebox-button {
   top: 0 !important;
   right: 0 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  width: 30px !important;
-  height: 28px !important;
+  width: 40px !important;
+  height: 38px !important;
   padding: 0 !important;
   border: none !important;
-  border-left: 1px solid #E5E7EB !important;
+  border-left: 1px solid #CBD5E1 !important;
   border-radius: 0 5px 5px 0 !important;
   background: #F8FAFC !important;
   box-shadow: none !important;
   color: #475569 !important;
 }
 
-.login-box .z-combobox-button:hover {
+.login-box .z-datebox-button {
+  position: relative;
+  flex: 0 0 40px;
+}
+
+.login-box .z-combobox-button:hover,
+.login-box .z-datebox-button:hover {
   background: #EEF5FB !important;
   color: #0F6E8C !important;
 }
 
-.login-box .z-combobox-icon {
+.login-box .z-combobox-icon,
+.login-box .z-datebox-icon {
   font-size: 12px !important;
   line-height: 1 !important;
 }
 
-.login-box .z-combobox:focus-within {
+.login-box .z-combobox:focus-within,
+.login-box .z-datebox:focus-within {
   border-color: #F2643C;
   box-shadow: 0 0 0 3px rgba(242,100,60,0.15);
 }
 
-.login-box .z-combobox-input:focus {
+.login-box .z-combobox-input:focus,
+.login-box .login-field .z-datebox-input:focus {
   outline: none;
+}
+
+.login-box .login-field .z-datebox-input:focus {
+  box-shadow: none;
 }
 
 <%-- ZK reparents an open popup under body and positions it for a 24px trigger. --%>
@@ -603,15 +651,15 @@ body:has(.login-window) > .z-combobox-popup .z-comboitem-selected .z-comboitem-t
   align-items: center !important;
   justify-content: center !important;
   width: 100% !important;
-  height: 30px !important;
-  min-height: 30px !important;
+  height: 42px !important;
+  min-height: 42px !important;
   padding: 0 12px !important;
-  border-radius: 6px !important;
+  border-radius: 8px !important;
   background: #0F6E8C !important;
   border: none !important;
   color: #FFFFFF !important;
-  font-weight: 700 !important;
-  font-size: 13px !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
   box-sizing: border-box !important;
   visibility: visible !important;
   opacity: 1 !important;
@@ -673,9 +721,55 @@ body:has(.login-window) > .z-combobox-popup .z-comboitem-selected .z-comboitem-t
   font-size: 11px;
 }
 
+<%-- Login message dialog polish to match the theme. --%>
+body:has(.login-window) .z-messagebox-window {
+  border-radius: 12px !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 20px 42px rgba(15,23,42,0.14), 0 4px 14px rgba(15,23,42,0.08) !important;
+  overflow: hidden !important;
+}
+
+body:has(.login-window) .z-messagebox-window .z-window-header,
+body:has(.login-window) .z-messagebox-window .z-caption-content {
+  display: flex !important;
+  align-items: center !important;
+  min-height: 44px;
+}
+
+body:has(.login-window) .z-messagebox-window .z-window-content {
+  padding: 16px 20px 20px 20px !important;
+}
+
+body:has(.login-window) .z-messagebox-window .z-button {
+  height: 38px !important;
+  min-height: 38px !important;
+  border-radius: 8px !important;
+  border: none !important;
+  background: #0F6E8C !important;
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+  padding: 0 14px !important;
+}
+
+body:has(.login-window) .z-messagebox-window .z-button:hover {
+  background: #0C5A72 !important;
+}
+
 @media screen and (max-width: 480px) {
   #rowSelectRole td.login-field, #rowRememberMe td.login-field {
     padding: 8px 0;
   }
 }
 
+@media screen and (max-width: 899px) {
+  .login-box-header-logo img {
+    display: block !important;
+    max-width: 220px;
+    margin: 0 auto 16px auto;
+  }
+
+  #loginCenterLayout {
+    padding: 24px 16px !important;
+    box-sizing: border-box;
+  }
+}

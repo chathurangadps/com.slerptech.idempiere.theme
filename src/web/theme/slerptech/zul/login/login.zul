@@ -1,15 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zk>
+<style>
+.login-window .z-center-body {
+	display: flex !important;
+	flex-direction: column !important;
+}
+.login-window .login-box {
+	width: 100% !important;
+	height: 100% !important;
+	min-height: 100% !important;
+	background: transparent !important;
+}
+.login-window .login-box > .z-window-content {
+	display: flex !important;
+	flex-direction: column !important;
+	justify-content: center !important;
+	align-items: center !important;
+	min-height: 100% !important;
+	box-sizing: border-box !important;
+	padding: 24px 0 !important;
+}
+.login-window .login-box form {
+	margin: auto !important;
+}
+.login-center-layout, .login-window-root {
+	height: 100% !important;
+	width: 100% !important;
+	display: flex !important;
+	flex-direction: column !important;
+	align-items: center !important;
+	justify-content: center !important;
+	overflow: visible !important;
+}
+</style>
 <borderlayout id="layout" sclass="login-window">
 	<center border="none" autoscroll="true" style="background-color: transparent;">
-		<div id="loginCenterLayout" hflex="1" vflex="1">
-			<window use="org.adempiere.webui.window.LoginWindow" id="loginWindow"/>
+		<div id="loginCenterLayout" sclass="login-center-layout" hflex="1" vflex="1">
+			<window use="org.adempiere.webui.window.LoginWindow" id="loginWindow" sclass="login-window-root"/>
 		</div>
 	</center>
-	<east sclass="login-east-panel">
+	<east sclass="login-east-panel" splittable="false" collapsible="false">
 		<include src="~./theme/slerptech/zul/login/login-right.zul"/>
 	</east>
-	<west sclass="login-west-panel">
+	<west sclass="login-west-panel" splittable="false" collapsible="false">
 		<include src="~./theme/slerptech/zul/login/login-left.zul"/>
 	</west>
 	<north sclass="login-north-panel">

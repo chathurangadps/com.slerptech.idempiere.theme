@@ -360,7 +360,7 @@ table.z-vbox > tbody > tr > td > table {
 }
 
 .desktop-header-username:hover,
-.link.z-toolbarbutton:hover span {
+.desktop-header .link.z-toolbarbutton:hover span {
   color: var(--zk-color-primary) !important;
 }
 

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <units size='2'>
-  <unit id='com.slerptech.idempiere.theme' version='13.0.0.202609191928' singleton='false' generation='2'>
-    <update id='com.slerptech.idempiere.theme' range='[0.0.0,13.0.0.202609191928)' severity='0'/>
+  <unit id='com.slerptech.idempiere.theme' version='13.0.0.202610190400' singleton='false' generation='2'>
+    <update id='com.slerptech.idempiere.theme' range='[0.0.0,13.0.0.202610190400)' severity='0'/>
     <properties size='6'>
       <property name='org.eclipse.equinox.p2.name' value='SLERPTECH iDempiere Theme'/>
       <property name='org.eclipse.equinox.p2.provider' value='SLERPTECH (PVT) LTD'/>
@@ -11,15 +11,15 @@
       <property name='maven-type' value='eclipse-plugin'/>
     </properties>
     <provides size='5'>
-      <provided namespace='org.eclipse.equinox.p2.iu' name='com.slerptech.idempiere.theme' version='13.0.0.202609191928'/>
-      <provided namespace='osgi.bundle' name='com.slerptech.idempiere.theme' version='13.0.0.202609191928'/>
-      <provided namespace='osgi.identity' name='com.slerptech.idempiere.theme' version='13.0.0.202609191928'>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='com.slerptech.idempiere.theme' version='13.0.0.202610190400'/>
+      <provided namespace='osgi.bundle' name='com.slerptech.idempiere.theme' version='13.0.0.202610190400'/>
+      <provided namespace='osgi.identity' name='com.slerptech.idempiere.theme' version='13.0.0.202610190400'>
         <properties size='1'>
           <property name='type' value='osgi.fragment'/>
         </properties>
       </provided>
       <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      <provided namespace='osgi.fragment' name='org.adempiere.ui.zk' version='13.0.0.202609191928'/>
+      <provided namespace='osgi.fragment' name='org.adempiere.ui.zk' version='13.0.0.202610190400'/>
     </provides>
     <requires size='3'>
       <required namespace='osgi.bundle' name='org.adempiere.ui.zk' range='13.0.0'/>
@@ -28,14 +28,14 @@
           com.slerptech.idempiere.theme
         </description>
       </requiredProperties>
-      <required namespace='org.eclipse.equinox.p2.iu' name='com.slerptech.idempiere.theme.source' range='[13.0.0.202609191928,13.0.0.202609191928]' optional='true'>
+      <required namespace='org.eclipse.equinox.p2.iu' name='com.slerptech.idempiere.theme.source' range='[13.0.0.202610190400,13.0.0.202610190400]' optional='true'>
         <filter>
           (org.eclipse.update.install.sources=true)
         </filter>
       </required>
     </requires>
     <artifacts size='1'>
-      <artifact classifier='osgi.bundle' id='com.slerptech.idempiere.theme' version='13.0.0.202609191928'/>
+      <artifact classifier='osgi.bundle' id='com.slerptech.idempiere.theme' version='13.0.0.202610190400'/>
     </artifacts>
     <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
     <touchpointData size='1'>
@@ -44,13 +44,13 @@
           true
         </instruction>
         <instruction key='manifest'>
-          Bundle-SymbolicName: com.slerptech.idempiere.theme&#xA;Bundle-Version: 13.0.0.202609191928&#xA;Fragment-Host: org.adempiere.ui.zk;bundle-version=&quot;13.0.0&quot;&#xA;
+          Bundle-SymbolicName: com.slerptech.idempiere.theme&#xA;Bundle-Version: 13.0.0.202610190400&#xA;Fragment-Host: org.adempiere.ui.zk;bundle-version=&quot;13.0.0&quot;&#xA;
         </instruction>
       </instructions>
     </touchpointData>
   </unit>
-  <unit id='com.slerptech.idempiere.theme.source' version='13.0.0.202609191928' singleton='false'>
-    <update id='com.slerptech.idempiere.theme.source' range='[0.0.0,13.0.0.202609191928)' severity='0'/>
+  <unit id='com.slerptech.idempiere.theme.source' version='13.0.0.202610190400' singleton='false'>
+    <update id='com.slerptech.idempiere.theme.source' range='[0.0.0,13.0.0.202610190400)' severity='0'/>
     <properties size='10'>
       <property name='df_LT.bundleVendor' value='SLERPTECH (PVT) LTD'/>
       <property name='df_LT.bundleName' value='SLERPTECH iDempiere Theme Source'/>
@@ -64,9 +64,9 @@
       <property name='maven-type' value='java-source'/>
     </properties>
     <provides size='5'>
-      <provided namespace='org.eclipse.equinox.p2.iu' name='com.slerptech.idempiere.theme.source' version='13.0.0.202609191928'/>
-      <provided namespace='osgi.bundle' name='com.slerptech.idempiere.theme.source' version='13.0.0.202609191928'/>
-      <provided namespace='osgi.identity' name='com.slerptech.idempiere.theme.source' version='13.0.0.202609191928'>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='com.slerptech.idempiere.theme.source' version='13.0.0.202610190400'/>
+      <provided namespace='osgi.bundle' name='com.slerptech.idempiere.theme.source' version='13.0.0.202610190400'/>
+      <provided namespace='osgi.identity' name='com.slerptech.idempiere.theme.source' version='13.0.0.202610190400'>
         <properties size='1'>
           <property name='type' value='osgi.bundle'/>
         </properties>
@@ -75,13 +75,13 @@
       <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
     </provides>
     <artifacts size='1'>
-      <artifact classifier='osgi.bundle' id='com.slerptech.idempiere.theme.source' version='13.0.0.202609191928'/>
+      <artifact classifier='osgi.bundle' id='com.slerptech.idempiere.theme.source' version='13.0.0.202610190400'/>
     </artifacts>
     <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
     <touchpointData size='1'>
       <instructions size='1'>
         <instruction key='manifest'>
-          Bundle-SymbolicName: com.slerptech.idempiere.theme.source&#xA;Bundle-Version: 13.0.0.202609191928&#xA;
+          Bundle-SymbolicName: com.slerptech.idempiere.theme.source&#xA;Bundle-Version: 13.0.0.202610190400&#xA;
         </instruction>
       </instructions>
     </touchpointData>
